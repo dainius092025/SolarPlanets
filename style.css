@@ -8,21 +8,31 @@ body {
   background: black;
   color: white;
 }
-
+.linkButton{
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: flex-start;
+  color:#FFD700
+}
+.button-direction{
+  position: fixed;
+  left: 20vh ;
+  top: 6vh;
+  z-index: 1000;
+}
 button {
   display: flex;
-  justify-content: flex-end;
-  align-items:left;
   position: fixed;
-  left: 0;
+  left: 4vh;
   top: 0;
   z-index: 1000;
   background: url('spaceship.webp') no-repeat center center/cover;
   object-fit: cover;
-  height: 5rem;
+  height: 100px;
+  width: 100px;
   rotate: 90deg;
   border:none;
-  margin: 5px 30px;
   color: #FFD700;
 }
 button img{
