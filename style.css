@@ -62,7 +62,6 @@ h3{
 .planet-row img {
   width: 130px;
   height: 130px;
-  border-radius: 50%;
   transition: transform 0.3s ease;
   cursor: pointer;
  

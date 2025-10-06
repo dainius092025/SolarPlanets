@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Explore Saturn</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background-image: url("https://science.nasa.gov/wp-content/uploads/2023/04/hs-2014-27-a-xlarge_web-jpg.webp");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+      }
+
+      .navbar {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+      }
+
+      .carousel-caption h4 {
+        background-color: rgba(0, 0, 0, 0.7);
+        padding: 10px;
+        border-radius: 5px;
+      }
+
+      .carousel-inner {
+        height: 500px;
+        border-radius: 10px;
+        overflow: hidden;
+      }
+
+      .carousel-inner .item img {
+        width: 100%;
+        height: 500px;
+        object-fit: cover;
+      }
+
+      .flip-card-container {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: nowrap;
+        padding: 20px;
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .flip-card {
+        background-color: transparent;
+        width: 30%;
+        height: 400px;
+        perspective: 1000px;
+        margin: 10px;
+      }
+
+      .flip-card-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        transition: transform 0.6s;
+        transform-style: preserve-3d;
+      }
+
+      .flip-card:hover .flip-card-inner {
+        transform: rotateY(180deg);
+      }
+
+      .flip-card-front,
+      .flip-card-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+      }
+
+      .flip-card-front {
+        background-color: #bbb;
+        color: black;
+      }
+
+      .flip-card-front img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 10px;
+      }
+
+      .flip-card-back {
+        background: linear-gradient(135deg, #1a1a3a 0%, #2a1a3a 100%);
+        color: white;
+        transform: rotateY(180deg);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+      }
+
+      .flip-card-back p {
+        font-size: 16px;
+        line-height: 1.6;
+      }
+
+      #missions {
+        margin-top: 40px;
+        padding: 40px;
+        background-color: rgba(0, 0, 0, 0.5);
+        border-radius: 10px;
+        color: white;
+        text-align: center;
+        max-width: 1000px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      #missions h1,
+      #missions h3 {
+        margin-bottom: 20px;
+      }
+
+      #missions ul {
+        text-align: left;
+        max-width: 800px;
+        margin: 20px auto;
+        font-size: 16px;
+        line-height: 1.6;
+      }
+
+      :target {
+        scroll-margin-top: 80px;
+      }
+    </style>
+  </head>
+  <body>
+    <a id="top"></a>
+
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <span class="navbar-brand">Explore Saturn</span>
+        </div>
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#top">Home</a></li>
+          <li><a href="#carouselExample">Gallery</a></li>
+          <li><a href="#flipCards">Facts</a></li>
+          <li><a href="#missions">Missions</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div
+      class="container text-center"
+      style="
+        margin-top: 70px;
+        color: white;
+        background-color: rgba(0, 0, 0, 0.5);
+        padding: 30px;
+        border-radius: 10px;
+      "
+    >
+      <h1>Welcome to the Saturn Exploration Page</h1>
+      <p>Discover the wonders of the ringed planet.</p>
+    </div>
+
+    <div class="container" style="margin-top: 30px">
+      <div id="carouselExample" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li
+            data-target="#carouselExample"
+            data-slide-to="0"
+            class="active"
+          ></li>
+          <li data-target="#carouselExample" data-slide-to="1"></li>
+          <li data-target="#carouselExample" data-slide-to="2"></li>
+        </ol>
+
+        <div class="carousel-inner">
+          <div class="item active">
+            <img
+              src="https://www.earth.com/assets/_next/image/?url=https%3A%2F%2Fcff2.earth.com%2Fuploads%2F2024%2F09%2F02141546%2Fsaturn_rings-vanish-in-2025-1400x850.jpg&w=1200&q=75"
+              alt="Rings"
+            />
+            <div class="carousel-caption">
+              <h4>Saturn's rings</h4>
+            </div>
+          </div>
+
+          <div class="item">
+            <img
+              src="https://a57.foxnews.com/static.foxnews.com/foxnews.com/content/uploads/2018/09/1440/810/saturn-great-white-spot.jpg?ve=1&tl=1"
+              alt="WhiteSpot"
+            />
+            <div class="carousel-caption">
+              <h4>Saturn's great white spot</h4>
+            </div>
+          </div>
+
+          <div class="item">
+            <img
+              src="https://cdn.mos.cms.futurecdn.net/JBQ47sudopWsgh2Zh9EdSS-650-80.jpg.webp"
+              alt="Equinox"
+            />
+            <div class="carousel-caption">
+              <h4>Saturn during equinox</h4>
+            </div>
+          </div>
+        </div>
+
+        <a
+          class="left carousel-control"
+          href="#carouselExample"
+          data-slide="prev"
+        >
+          <span class="glyphicon glyphicon-chevron-left"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a
+          class="right carousel-control"
+          href="#carouselExample"
+          data-slide="next"
+        >
+          <span class="glyphicon glyphicon-chevron-right"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </div>
+
+    <div
+      class="container text-center"
+      id="flipCards"
+      style="
+        color: white;
+        background-color: rgba(0, 0, 0, 0.5);
+        padding: 30px;
+        border-radius: 10px;
+        margin-top: 20px;
+      "
+    >
+      <h2 style="margin-bottom: 20px">
+        Hover over the pictures for some facts
+      </h2>
+      <div class="flip-card-container">
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img
+                src="https://www.earth.com/assets/_next/image/?url=https%3A%2F%2Fcff2.earth.com%2Fuploads%2F2024%2F09%2F02141546%2Fsaturn_rings-vanish-in-2025-1400x850.jpg&w=1200&q=75"
+                alt="Saturn Rings"
+              />
+            </div>
+            <div class="flip-card-back">
+              <p>
+                <strong>Saturn's Rings</strong><br /><br />Saturn's rings are
+                made of billions of pieces of ice, rock, and dust. Some
+                particles are as small as grains of sand, while others are as
+                large as mountains. The rings extend up to 282,000 km from the
+                planet but are only about 10 meters thick!
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img
+                src="https://a57.foxnews.com/static.foxnews.com/foxnews.com/content/uploads/2018/09/1440/810/saturn-great-white-spot.jpg?ve=1&tl=1"
+                alt="Great White Spot"
+              />
+            </div>
+            <div class="flip-card-back">
+              <p>
+                <strong>The Great White Spot</strong><br /><br />This massive
+                storm appears roughly every 30 years on Saturn. The storm can
+                grow to be larger than Earth and is caused by powerful upwelling
+                of warm air from deep within Saturn's atmosphere, creating
+                bright white ammonia ice clouds.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img
+                src="https://cdn.mos.cms.futurecdn.net/JBQ47sudopWsgh2Zh9EdSS-650-80.jpg.webp"
+                alt="Saturn Equinox"
+              />
+            </div>
+            <div class="flip-card-back">
+              <p>
+                <strong>Saturn During Equinox</strong><br /><br />During
+                Saturn's equinox, which occurs every 15 years, the Sun shines
+                directly on the planet's equator. This causes the rings to
+                appear edge-on from Earth, making them nearly invisible and
+                revealing vertical structures that cast long shadows across the
+                rings.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container" id="missions">
+      <h1>Missions to Saturn</h1>
+      <p>
+        NASA has conducted four major missions to Saturn: Pioneer 11 was the
+        first to fly by in 1979, followed by the Voyager 1 and 2 flybys in 1980
+        and 1981, which provided valuable data. The Cassini-Huygens mission
+        (1997-2017) was the most comprehensive, orbiting Saturn and deploying
+        the Huygens probe to land on Titan, discovering the moon's ocean and
+        methane lakes.
+      </p>
+
+      <h3>Past Missions</h3>
+      <ul>
+        <li>
+          <strong>Pioneer 11 (1979):</strong> The first spacecraft to get a
+          close look at Saturn.
+        </li>
+        <li>
+          <strong>Voyager 1 (1980) & Voyager 2 (1981):</strong> These twin
+          spacecraft performed flybys of Saturn and studied its moons.
+        </li>
+      </ul>
+
+      <h3>The Cassini-Huygens Mission</h3>
+      <p>
+        A collaborative effort between NASA, ESA, and the Italian Space Agency,
+        Cassini studied Saturn, its rings, and moons from orbit for over a
+        decade.
+      </p>
+      <ul>
+        <li>
+          <strong>Enceladus:</strong> Cassini discovered evidence of a global
+          ocean within Enceladus, with potential hydrothermal activity.
+        </li>
+        <li>
+          <strong>Titan:</strong> The mission carried the European Huygens
+          probe, which successfully landed on Titan in 2005, revealing liquid
+          methane lakes and seas on its surface.
+        </li>
+        <li>
+          <strong>Grand Finale (2017):</strong> Cassini entered a series of
+          daring orbits, diving between Saturn and its rings before plunging
+          into the planet's atmosphere, where it burned up like a meteor. This
+          allowed for unprecedented close-up observations of the planet and its
+          rings.
+        </li>
+      </ul>
+
+      <h3>Current & Future Activities</h3>
+      <p>
+        <strong>Dragonfly Mission:</strong> NASA's next mission to the Saturn
+        system, the Dragonfly rotorcraft-lander, will make multiple flights on
+        Titan to study its environment and search for the building blocks of
+        life.
+      </p>
+    </div>
+  </body>
+</html>
