@@ -9,6 +9,30 @@ body {
   color: white;
 }
 
+button {
+  display: flex;
+  justify-content: flex-end;
+  align-items:left;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1000;
+  background: url('spaceship.webp') no-repeat center center/cover;
+  object-fit: cover;
+  height: 5rem;
+  rotate: 90deg;
+  border:none;
+  margin: 5px 30px;
+  color: #FFD700;
+}
+button img{
+  transition: transform 5.3s ease;
+  cursor: pointer;
+}
+button:hover{
+  transform: scale(1.2);
+}
+
 .page-titel{
   height: fit-content;
   width: fit-content;
@@ -19,6 +43,8 @@ body {
   font-family: 'Oswald', sans-serif;
   font-size: 9rem;
   flex-direction: column;
+  color: #FFD700;
+  text-shadow: 0 0 20px#FFD700;
 }
 
 /*.main SECTION */
@@ -30,8 +56,9 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 20px;
+  padding: 20px;  
 }
+
 p {
   color: yellow;
   font-size: 1.5rem;
@@ -44,12 +71,15 @@ p {
 h2{
   font-family: 'Oswald', sans-serif;
   margin: 20px 0 10px;
+  color: gold;
+  opacity: 95%;
 }
 
 h3{
   text-align: start;
   font-family: 'Oswald', sans-serif;
   margin: 10px 0 10px;
+  color: gold;
 }
 /* PLANET GRID */
 .planet-row {
@@ -62,7 +92,7 @@ h3{
 .planet-row img {
   width: 130px;
   height: 130px;
-  transition: transform 0.3s ease;
+  transition: transform 1.3s ease;
   cursor: pointer;
  
 }
